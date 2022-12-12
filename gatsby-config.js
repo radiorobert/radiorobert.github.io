@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
@@ -9,8 +13,8 @@ module.exports = {
   plugins: [{
     resolve: 'gatsby-source-contentful',
     options: {
-      "accessToken": "CFPAT-_YLTYuW2cHqXNfOqoGKnd2-AhI9GvBBWqvhgWLEnf2M",
-      "spaceId": ""
+      "accessToken": process.env.CONTENTFUL_API,
+      "spaceId": process.env.CONTENTFUL_SPACE_ID
     }
   }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-postcss", "gatsby-plugin-sitemap", "gatsby-plugin-mdx", {
     resolve: 'gatsby-source-filesystem',
